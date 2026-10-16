@@ -1,0 +1,191 @@
+/* Complianty Connector admin styles. Loaded on the plugin page only. */
+.complianty-wrap .complianty-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	padding: 1px 20px 12px;
+	margin: 16px 0;
+	max-width: 760px;
+}
+
+.complianty-wrap .complianty-summary {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 16px;
+	padding: 14px 16px;
+	margin: 12px 0 16px;
+	border: 1px solid #e5e7eb;
+	border-left: 4px solid #94a3b8;
+	border-radius: 6px;
+	background: #f8fafc;
+}
+
+.complianty-wrap .complianty-summary--ok {
+	border-left-color: #10b981;
+	background: #ecfdf5;
+}
+
+.complianty-wrap .complianty-summary--gaps {
+	border-left-color: #f59e0b;
+	background: #fffbeb;
+}
+
+.complianty-wrap .complianty-summary--critical {
+	border-left-color: #ef4444;
+	background: #fef2f2;
+}
+
+.complianty-wrap .complianty-light {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.complianty-wrap .complianty-light__label {
+	font-size: 16px;
+}
+
+.complianty-wrap .complianty-light__dot {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #94a3b8;
+}
+
+.complianty-wrap .complianty-summary--ok .complianty-light__dot {
+	background: #10b981;
+}
+
+.complianty-wrap .complianty-summary--gaps .complianty-light__dot {
+	background: #f59e0b;
+}
+
+.complianty-wrap .complianty-summary--critical .complianty-light__dot {
+	background: #ef4444;
+}
+
+.complianty-wrap .complianty-pills {
+	display: flex;
+	gap: 6px;
+}
+
+.complianty-wrap .complianty-meta {
+	flex-basis: 100%;
+	margin: 0;
+	color: #64748b;
+	font-size: 12px;
+}
+
+.complianty-wrap .complianty-pill {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.6;
+	white-space: nowrap;
+	background: #e2e8f0;
+	color: #334155;
+}
+
+.complianty-wrap .complianty-pill--critical {
+	background: #fee2e2;
+	color: #b91c1c;
+}
+
+.complianty-wrap .complianty-pill--important {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.complianty-wrap .complianty-todos {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.complianty-wrap .complianty-todo {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 2px 10px;
+	align-items: start;
+	margin: 0 0 8px;
+	padding: 10px 14px;
+	border: 1px solid #e5e7eb;
+	border-left: 4px solid #94a3b8;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.complianty-wrap .complianty-todo--critical {
+	border-left-color: #ef4444;
+}
+
+.complianty-wrap .complianty-todo--important {
+	border-left-color: #f59e0b;
+}
+
+.complianty-wrap .complianty-todo__text {
+	grid-column: 2;
+	color: #64748b;
+}
+
+.complianty-wrap .complianty-counts,
+.complianty-wrap .complianty-list {
+	margin-left: 1.2em;
+	list-style: disc;
+}
+
+.complianty-wrap .complianty-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.complianty-wrap .complianty-inline-form {
+	display: inline;
+}
+
+.complianty-wrap .complianty-code {
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	padding: 8px 12px;
+	overflow-x: auto;
+}
+
+.complianty-wrap .complianty-progress:empty {
+	display: none;
+}
+
+.complianty-wrap .complianty-area {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 16px 0 8px;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #475569;
+}
+
+.complianty-wrap .complianty-area__count {
+	padding: 0 7px;
+	border-radius: 999px;
+	background: #e2e8f0;
+	font-size: 11px;
+	line-height: 1.6;
+}
+
+.complianty-widget .complianty-summary {
+	margin-top: 0;
+}
+
+.complianty-widget .complianty-todo {
+	padding: 8px 12px;
+}
+
+.complianty-wrap .complianty-card form {
+	margin: 10px 0;
+}

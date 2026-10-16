@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "complianty/dse",
+	"title": "Privacy policy (Complianty)",
+	"category": "widgets",
+	"icon": "shield",
+	"description": "Outputs the approved privacy policy from your Complianty account.",
+	"keywords": [ "privacy", "privacy policy", "complianty" ],
+	"textdomain": "complianty-connector",
+	"supports": {
+		"html": false,
+		"multiple": true,
+		"reusable": true
+	},
+	"editorScript": "complianty-connector-dse-editor"
+}
