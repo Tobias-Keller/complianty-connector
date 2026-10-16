@@ -64,7 +64,7 @@ jobs:
             cat complianty-connector.zip.sha256
             echo '```'
           } > notes.md
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           files: |
             complianty-connector.zip
