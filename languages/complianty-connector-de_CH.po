@@ -1,0 +1,652 @@
+# Copyright (C) 2026 Complianty
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Complianty Connector 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/complianty-connector\n"
+"Last-Translator: Complianty\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_CH\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2026-10-16T13:30:40+00:00\n"
+"PO-Revision-Date: 2026-10-16 12:00+0000\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: complianty-connector\n"
+
+#. Plugin Name of the plugin
+#: src/Admin/SettingsPage.php:166
+#: src/Admin/SettingsPage.php:314
+#: src/Support/Privacy.php:36
+msgid "Complianty Connector"
+msgstr "Complianty Connector"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://complianty.de/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Shows the status of your Complianty website scan in the WordPress admin and outputs your privacy policy from your Complianty account."
+msgstr "Zeigt den Status Ihres Complianty-Website-Scans im WordPress-Admin und gibt Ihre Datenschutzerklärung aus Ihrem Complianty-Konto aus."
+
+#. Author of the plugin
+#: src/Admin/SettingsPage.php:167
+msgid "Complianty"
+msgstr ""
+
+#: complianty-connector.php:34
+msgid "Complianty Connector: The installation is incomplete. Please reinstall the plugin."
+msgstr "Complianty Connector: Die Installation ist unvollständig. Bitte installieren Sie das Plugin neu."
+
+#: src/Admin/DashboardWidget.php:73
+msgid "Complianty status"
+msgstr "Complianty-Status"
+
+#: src/Admin/DashboardWidget.php:115
+msgid "Details and scan"
+msgstr "Details und Scan"
+
+#: src/Admin/DashboardWidget.php:117
+msgid "Complianty dashboard"
+msgstr "Complianty-Dashboard"
+
+#: src/Admin/Notices.php:97
+msgid "The connection was removed. The token and the cached data were deleted from this site."
+msgstr "Die Verbindung wurde entfernt. Das Token und die zwischengespeicherten Daten wurden von dieser Website gelöscht."
+
+#: src/Admin/Notices.php:99
+msgid "The status was updated."
+msgstr "Der Status wurde aktualisiert."
+
+#: src/Admin/Notices.php:101
+msgid "The privacy policy was checked."
+msgstr "Die Datenschutzerklärung wurde geprüft."
+
+#: src/Admin/Notices.php:103
+msgid "The token was saved."
+msgstr "Das Token wurde gespeichert."
+
+#: src/Admin/SettingsPage.php:152
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/Admin/SettingsPage.php:239
+msgid "The token was saved. The first status check runs when you open this page."
+msgstr "Das Token wurde gespeichert. Die erste Statusabfrage erfolgt beim Öffnen dieser Seite."
+
+#: src/Admin/SettingsPage.php:250
+msgid "This is not a valid connection token. Copy the token from your Complianty account without spaces."
+msgstr "Das ist kein gültiges Verbindungstoken. Kopieren Sie das Token aus Ihrem Complianty-Konto ohne Leerzeichen."
+
+#: src/Admin/SettingsPage.php:262
+msgid "The token is set in wp-config.php. Remove COMPLIANTY_API_TOKEN there to change it here."
+msgstr "Das Token ist in der wp-config.php gesetzt. Entfernen Sie dort COMPLIANTY_API_TOKEN, um es hier zu ändern."
+
+#: src/Admin/SettingsPage.php:265
+msgid "The token could not be stored securely because PHP libsodium is not available. Set COMPLIANTY_API_TOKEN in wp-config.php instead."
+msgstr "Das Token konnte nicht sicher gespeichert werden, weil PHP libsodium nicht verfügbar ist. Setzen Sie stattdessen COMPLIANTY_API_TOKEN in der wp-config.php."
+
+#: src/Admin/SettingsPage.php:310
+msgid "You are not allowed to access this page."
+msgstr "Sie dürfen diese Seite nicht aufrufen."
+
+#: src/Admin/SettingsPage.php:318
+msgid "JavaScript is needed for scan progress. The other functions work without it."
+msgstr "Für den Scan-Fortschritt wird JavaScript benötigt. Die anderen Funktionen laufen auch ohne."
+
+#: src/Admin/SettingsPage.php:348
+#: src/Admin/SettingsPage.php:355
+msgid "Connect"
+msgstr "Verbinden"
+
+#: src/Admin/SettingsPage.php:349
+msgid "Create a connection token for this website in your Complianty account and paste it here. Until you do, this plugin does not contact any external service."
+msgstr "Erstellen Sie in Ihrem Complianty-Konto ein Verbindungstoken für diese Website und fügen Sie es hier ein. Bis dahin nimmt dieses Plugin keinen Kontakt zu externen Diensten auf."
+
+#: src/Admin/SettingsPage.php:353
+msgid "Connection token"
+msgstr "Verbindungstoken"
+
+#: src/Admin/SettingsPage.php:358
+msgid "Alternative: define the token in wp-config.php. Then nothing is stored in the database."
+msgstr "Alternative: Definieren Sie das Token in der wp-config.php. Dann wird nichts in der Datenbank gespeichert."
+
+#: src/Admin/SettingsPage.php:362
+msgid "You do not have an account yet?"
+msgstr "Sie haben noch kein Konto?"
+
+#: src/Admin/SettingsPage.php:364
+msgid "Create one at Complianty"
+msgstr "Bei Complianty erstellen"
+
+#: src/Admin/SettingsPage.php:380
+msgid "Connection"
+msgstr "Verbindung"
+
+#: src/Admin/SettingsPage.php:383
+msgid "The token cannot be read. It is either invalid or, if it is stored in the database, the WordPress security keys changed. Disconnect and connect again with a new token."
+msgstr "Das Token kann nicht gelesen werden. Es ist entweder ungültig oder, falls es in der Datenbank liegt, haben sich die WordPress-Sicherheitsschlüssel geändert. Trennen Sie die Verbindung und verbinden Sie sich erneut mit einem neuen Token."
+
+#: src/Admin/SettingsPage.php:387
+msgid "Token:"
+msgstr "Token:"
+
+#: src/Admin/SettingsPage.php:392
+msgid "State:"
+msgstr "Status:"
+
+#: src/Admin/SettingsPage.php:398
+msgid "The token is provided by wp-config.php. To disconnect, remove COMPLIANTY_API_TOKEN there."
+msgstr "Das Token kommt aus der wp-config.php. Zum Trennen entfernen Sie dort COMPLIANTY_API_TOKEN."
+
+#: src/Admin/SettingsPage.php:403
+msgid "Disconnect"
+msgstr "Trennen"
+
+#: src/Admin/SettingsPage.php:405
+msgid "Disconnecting deletes the token, the cached status and the stored privacy policy copy from this site."
+msgstr "Beim Trennen werden das Token, der zwischengespeicherte Status und die gespeicherte Kopie der Datenschutzerklärung von dieser Website gelöscht."
+
+#: src/Admin/SettingsPage.php:421
+#: src/Admin/SettingsPage.php:503
+msgid "Privacy policy"
+msgstr "Datenschutzerklärung"
+
+#: src/Admin/SettingsPage.php:424
+msgid "A new version is waiting for approval in Complianty. Until then the last approved version stays on your website."
+msgstr "Eine neue Fassung wartet in Complianty auf Freigabe. Bis dahin bleibt die zuletzt freigegebene Fassung auf Ihrer Website."
+
+#: src/Admin/SettingsPage.php:426
+msgid "No privacy policy was found in your Complianty account."
+msgstr "In Ihrem Complianty-Konto wurde keine Datenschutzerklärung gefunden."
+
+#: src/Admin/SettingsPage.php:428
+msgid "The Complianty subscription has ended. The service now provides a notice instead of the policy, and your website shows that notice."
+msgstr "Das Complianty-Abonnement ist beendet. Der Dienst liefert jetzt einen Hinweis statt der Datenschutzerklärung, und Ihre Website zeigt diesen Hinweis."
+
+#: src/Admin/SettingsPage.php:433
+msgid "The stored copy is the notice of the service."
+msgstr "Die gespeicherte Kopie ist der Hinweis des Dienstes."
+
+#. translators: %s: approval date
+#: src/Admin/SettingsPage.php:440
+msgid "Approved version from: %s"
+msgstr "Freigegebene Fassung vom: %s"
+
+#. translators: %s: date and time of the last check
+#: src/Admin/SettingsPage.php:451
+msgid "Last checked: %s"
+msgstr "Zuletzt geprüft: %s"
+
+#: src/Admin/SettingsPage.php:457
+msgid "There is no approved privacy policy on this site yet."
+msgstr "Auf dieser Website gibt es noch keine freigegebene Datenschutzerklärung."
+
+#: src/Admin/SettingsPage.php:460
+msgid "Output the privacy policy from your Complianty account with the shortcode or the block \"Privacy policy (Complianty)\"."
+msgstr "Geben Sie die Datenschutzerklärung aus Ihrem Complianty-Konto mit dem Shortcode oder dem Block \"Datenschutzerklärung (Complianty)\" aus."
+
+#: src/Admin/SettingsPage.php:470
+msgid "Show a link to Complianty below the privacy policy"
+msgstr "Link zu Complianty unter der Datenschutzerklärung anzeigen"
+
+#: src/Admin/SettingsPage.php:472
+msgid "Off by default. If you turn it on, a short link to complianty.de appears below the privacy policy on your website."
+msgstr "Standardmäßig aus. Wenn Sie ihn einschalten, erscheint unter der Datenschutzerklärung auf Ihrer Website ein kurzer Link zu complianty.de."
+
+#: src/Admin/SettingsPage.php:473
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Admin/SettingsPage.php:479
+msgid "Update privacy policy"
+msgstr "Datenschutzerklärung aktualisieren"
+
+#: src/Admin/SettingsPage.php:491
+msgid "External services"
+msgstr "Externe Dienste"
+
+#: src/Admin/SettingsPage.php:492
+msgid "This plugin connects your server to the Complianty service at app.complianty.de."
+msgstr "Dieses Plugin verbindet Ihren Server mit dem Dienst Complianty unter app.complianty.de."
+
+#: src/Admin/SettingsPage.php:494
+msgid "Before you enter a token, nothing is sent. The only exception is the optional free check, which runs only after you press its button and sends the address of this website."
+msgstr "Bevor Sie ein Token eingeben, wird nichts gesendet. Einzige Ausnahme ist der optionale kostenlose Check, der erst nach Klick auf seinen Button läuft und die Adresse dieser Website sendet."
+
+#: src/Admin/SettingsPage.php:495
+msgid "With a token, your server sends the token and the plugin version. No website address, user name or WordPress version is sent."
+msgstr "Mit Token sendet Ihr Server das Token und die Plugin-Version. Es werden keine Website-Adresse, kein Benutzername und keine WordPress-Version gesendet."
+
+#: src/Admin/SettingsPage.php:496
+msgid "Requests happen when you open this page or the dashboard, press Refresh or Scan now, and in the background to keep the privacy policy copy current."
+msgstr "Anfragen erfolgen, wenn Sie diese Seite oder das Dashboard öffnen, auf Aktualisieren oder Jetzt scannen klicken, und im Hintergrund, um die Kopie der Datenschutzerklärung aktuell zu halten."
+
+#: src/Admin/SettingsPage.php:497
+msgid "Visitors of your website never contact Complianty. Your server fetches the data."
+msgstr "Besucher Ihrer Website nehmen nie Kontakt zu Complianty auf. Ihr Server holt die Daten ab."
+
+#: src/Admin/SettingsPage.php:498
+msgid "The token is stored encrypted with libsodium, using a key derived from your WordPress security keys. This protects against leaks of the database alone, not against access to wp-config.php."
+msgstr "Das Token wird mit libsodium verschlüsselt gespeichert, mit einem aus Ihren WordPress-Sicherheitsschlüsseln abgeleiteten Schlüssel. Das schützt bei einem Datenbank-Leck allein, nicht bei Zugriff auf die wp-config.php."
+
+#: src/Admin/SettingsPage.php:505
+msgid "Terms of service"
+msgstr "Allgemeine Geschäftsbedingungen"
+
+#: src/Admin/SettingsPage.php:572
+msgid "You are not allowed to do this."
+msgstr "Sie dürfen das nicht ausführen."
+
+#: src/Admin/SettingsPage.php:577
+msgid "Invalid request."
+msgstr "Ungültige Anfrage."
+
+#: src/Admin/SettingsPage.php:611
+msgid "unknown"
+msgstr "unbekannt"
+
+#: src/Admin/StatusPage.php:125
+msgid "Status of your website"
+msgstr "Status Ihrer Website"
+
+#: src/Admin/StatusPage.php:132
+msgid "No status is available yet. Press Refresh to load it."
+msgstr "Es liegt noch kein Status vor. Klicken Sie auf Aktualisieren, um ihn zu laden."
+
+#. translators: %s: date and time of the last update
+#: src/Admin/StatusPage.php:144
+msgid "Updated: %s"
+msgstr "Aktualisiert: %s"
+
+#: src/Admin/StatusPage.php:161
+msgid "No open findings"
+msgstr "Keine offenen Befunde"
+
+#: src/Admin/StatusPage.php:162
+msgid "Gaps found"
+msgstr "Lücken gefunden"
+
+#: src/Admin/StatusPage.php:163
+msgid "Critical findings"
+msgstr "Kritische Befunde"
+
+#: src/Admin/StatusPage.php:164
+#: src/Support/Messages.php:157
+msgid "Not checked yet"
+msgstr "Noch nicht geprüft"
+
+#: src/Admin/StatusPage.php:172
+msgid "No scan yet"
+msgstr "Noch kein Scan"
+
+#: src/Admin/StatusPage.php:175
+msgid "Ready"
+msgstr "Bereit"
+
+#: src/Admin/StatusPage.php:176
+msgid "Waiting to start"
+msgstr "Wartet auf Start"
+
+#: src/Admin/StatusPage.php:177
+msgid "Scan running"
+msgstr "Scan läuft"
+
+#. translators: %d: number of open critical findings
+#: src/Admin/StatusPage.php:192
+msgid "%d critical"
+msgid_plural "%d critical"
+msgstr[0] "%d kritisch"
+msgstr[1] "%d kritisch"
+
+#. translators: %d: number of open important findings
+#: src/Admin/StatusPage.php:202
+msgid "%d important"
+msgid_plural "%d important"
+msgstr[0] "%d wichtig"
+msgstr[1] "%d wichtig"
+
+#. translators: 1: date and time of the last scan, 2: scan state, e.g. "Ready"
+#: src/Admin/StatusPage.php:214
+msgid "Last scan: %1$s. Scan state: %2$s."
+msgstr "Letzter Scan: %1$s. Scan-Status: %2$s."
+
+#: src/Admin/StatusPage.php:240
+msgid "Critical"
+msgstr "Kritisch"
+
+#: src/Admin/StatusPage.php:241
+msgid "Important"
+msgstr "Wichtig"
+
+#: src/Admin/StatusPage.php:242
+msgid "Note"
+msgstr "Hinweis"
+
+#: src/Admin/StatusPage.php:253
+msgid "Most important open findings"
+msgstr "Wichtigste offene Befunde"
+
+#: src/Admin/StatusPage.php:296
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: src/Admin/StatusPage.php:304
+msgid "Scan now"
+msgstr "Jetzt scannen"
+
+#: src/Admin/StatusPage.php:311
+msgid "Open in the Complianty dashboard"
+msgstr "Im Complianty-Dashboard öffnen"
+
+#: src/Admin/StatusPage.php:330
+msgid "Check this website for free"
+msgstr "Diese Website kostenlos prüfen"
+
+#: src/Admin/StatusPage.php:341
+msgid "The check could not be completed. Please try again later."
+msgstr "Die Prüfung konnte nicht abgeschlossen werden. Bitte versuchen Sie es später erneut."
+
+#: src/Admin/StatusPage.php:345
+msgid "You can run a short check of this website without an account. It lists the cookie banner and the tools that were found."
+msgstr "Sie können diese Website ohne Konto kurz prüfen lassen. Die Prüfung nennt den Cookie-Banner und die gefundenen Tools."
+
+#: src/Admin/StatusPage.php:346
+msgid "What is sent:"
+msgstr "Was gesendet wird:"
+
+#. translators: %s: address of this website
+#: src/Admin/StatusPage.php:350
+msgid "Only the address of this website (%s) is sent to the Complianty service, and only when you press the button. No account, no e-mail address and no other data is sent."
+msgstr "Nur die Adresse dieser Website (%s) wird an den Dienst Complianty gesendet, und zwar nur, wenn Sie auf den Button klicken. Es werden kein Konto, keine E-Mail-Adresse und keine weiteren Daten gesendet."
+
+#: src/Admin/StatusPage.php:358
+msgid "Privacy policy of Complianty"
+msgstr "Datenschutzerklärung von Complianty"
+
+#: src/Admin/StatusPage.php:363
+msgid "Check this website now"
+msgstr "Diese Website jetzt prüfen"
+
+#: src/Admin/StatusPage.php:370
+#: assets/admin.js:97
+msgid "The check is running. This can take a minute."
+msgstr "Die Prüfung läuft. Das kann eine Minute dauern."
+
+#: src/Admin/StatusPage.php:382
+msgid "Result of the short check"
+msgstr "Ergebnis der Kurzprüfung"
+
+#. translators: %s: name of the detected cookie banner
+#: src/Admin/StatusPage.php:391
+msgid "A cookie banner was detected: %s"
+msgstr "Ein Cookie-Banner wurde erkannt: %s"
+
+#: src/Admin/StatusPage.php:392
+msgid "A cookie banner was detected."
+msgstr "Ein Cookie-Banner wurde erkannt."
+
+#: src/Admin/StatusPage.php:396
+msgid "No cookie banner was detected."
+msgstr "Es wurde kein Cookie-Banner erkannt."
+
+#. translators: %d: number of detected tools
+#: src/Admin/StatusPage.php:407
+msgid "%d tool was detected."
+msgid_plural "%d tools were detected."
+msgstr[0] "%d Tool wurde erkannt."
+msgstr[1] "%d Tools wurden erkannt."
+
+#. translators: %d: number of tools that were active before consent
+#: src/Admin/StatusPage.php:417
+msgid "%d tool was active before consent was given."
+msgid_plural "%d tools were active before consent was given."
+msgstr[0] "%d Tool war aktiv, bevor eingewilligt wurde."
+msgstr[1] "%d Tools waren aktiv, bevor eingewilligt wurde."
+
+#: src/Admin/StatusPage.php:435
+msgid "before consent"
+msgstr "vor Einwilligung"
+
+#: src/Admin/StatusPage.php:441
+msgid "This is a short automatic check. It lists what was observed and is not a legal assessment."
+msgstr "Das ist eine kurze automatische Prüfung. Sie nennt, was beobachtet wurde, und ist keine rechtliche Bewertung."
+
+#: src/Admin/StatusPage.php:446
+msgid "Get the full report in Complianty"
+msgstr "Vollständigen Bericht in Complianty ansehen"
+
+#: src/Frontend/DseOutput.php:97
+msgid "Privacy policy provided with Complianty"
+msgstr "Datenschutzerklärung bereitgestellt mit Complianty"
+
+#: src/Rest/FreeScanController.php:108
+msgid "The free check is only available while no token is set."
+msgstr "Der kostenlose Check ist nur verfügbar, solange kein Token gesetzt ist."
+
+#: src/Rest/FreeScanController.php:145
+msgid "No check is running."
+msgstr "Es läuft keine Prüfung."
+
+#: src/Support/Areas.php:35
+msgid "Tracking"
+msgstr "Tracking"
+
+#: src/Support/Areas.php:36
+msgid "Cookie banner"
+msgstr "Cookie-Banner"
+
+#: src/Support/Areas.php:37
+msgid "External content"
+msgstr "Externe Inhalte"
+
+#: src/Support/Areas.php:38
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: src/Support/Areas.php:39
+msgid "Imprint"
+msgstr "Impressum"
+
+#: src/Support/Areas.php:40
+msgid "Accessibility"
+msgstr "Barrierefreiheit"
+
+#: src/Support/Areas.php:41
+msgid "Infrastructure"
+msgstr "Infrastruktur"
+
+#: src/Support/Areas.php:42
+msgid "Forms"
+msgstr "Formulare"
+
+#: src/Support/Areas.php:43
+msgid "Other"
+msgstr "Sonstiges"
+
+#: src/Support/Messages.php:37
+msgid "No connection token is set. Paste the token from your Complianty account to connect."
+msgstr "Es ist kein Verbindungstoken gesetzt. Fügen Sie das Token aus Ihrem Complianty-Konto ein, um sich zu verbinden."
+
+#: src/Support/Messages.php:40
+msgid "The token is invalid or was revoked. Create a new token in your Complianty account and connect again."
+msgstr "Das Token ist ungültig oder wurde widerrufen. Erstellen Sie in Ihrem Complianty-Konto ein neues Token und verbinden Sie sich erneut."
+
+#: src/Support/Messages.php:47
+msgid "Too many requests. Please try again in a few minutes."
+msgstr "Zu viele Anfragen. Bitte versuchen Sie es in einigen Minuten erneut."
+
+#. translators: %s: waiting time, e.g. "5 minutes"
+#: src/Support/Messages.php:49
+msgid "Too many requests. Please try again in %s."
+msgstr "Zu viele Anfragen. Bitte versuchen Sie es in %s erneut."
+
+#: src/Support/Messages.php:55
+msgid "The daily scan budget of your plan is used up. Please try again tomorrow."
+msgstr "Das tägliche Scan-Kontingent Ihres Tarifs ist aufgebraucht. Bitte versuchen Sie es morgen erneut."
+
+#: src/Support/Messages.php:58
+msgid "A scan is already running. The result appears here when it is finished."
+msgstr "Ein Scan läuft bereits. Das Ergebnis erscheint hier, sobald er fertig ist."
+
+#: src/Support/Messages.php:62
+msgid "The address of this website cannot be checked from outside, for example because it is a local or private address."
+msgstr "Die Adresse dieser Website kann von außen nicht geprüft werden, zum Beispiel weil es eine lokale oder private Adresse ist."
+
+#: src/Support/Messages.php:63
+msgid "The service did not accept the request. Please reconnect or try again later."
+msgstr "Der Dienst hat die Anfrage nicht akzeptiert. Bitte verbinden Sie sich erneut oder versuchen Sie es später noch einmal."
+
+#: src/Support/Messages.php:67
+msgid "The scanner is busy right now. Please try again in a few minutes."
+msgstr "Der Scanner ist gerade ausgelastet. Bitte versuchen Sie es in einigen Minuten erneut."
+
+#: src/Support/Messages.php:68
+msgid "The service reports a problem. Please try again later."
+msgstr "Der Dienst meldet ein Problem. Bitte versuchen Sie es später erneut."
+
+#: src/Support/Messages.php:71
+msgid "The service could not be reached. Check that your server may connect to app.complianty.de and try again."
+msgstr "Der Dienst ist nicht erreichbar. Prüfen Sie, ob Ihr Server Verbindungen zu app.complianty.de aufbauen darf, und versuchen Sie es erneut."
+
+#: src/Support/Messages.php:75
+msgid "The service was not reachable recently. The next attempt is made automatically, or press Refresh."
+msgstr "Der Dienst war zuletzt nicht erreichbar. Der nächste Versuch erfolgt automatisch, oder klicken Sie auf Aktualisieren."
+
+#. translators: %s: waiting time, e.g. "5 minutes"
+#: src/Support/Messages.php:77
+msgid "The service was not reachable recently. The next attempt is made automatically in %s, or press Refresh."
+msgstr "Der Dienst war zuletzt nicht erreichbar. Der nächste Versuch erfolgt automatisch in %s, oder klicken Sie auf Aktualisieren."
+
+#: src/Support/Messages.php:80
+msgid "The service sent an unexpected response. Please try again later."
+msgstr "Der Dienst hat eine unerwartete Antwort gesendet. Bitte versuchen Sie es später erneut."
+
+#: src/Support/Messages.php:92
+msgid "The Complianty subscription for this website is not active. Reactivate it in your Complianty account."
+msgstr "Das Complianty-Abonnement für diese Website ist nicht aktiv. Aktivieren Sie es in Ihrem Complianty-Konto wieder."
+
+#: src/Support/Messages.php:95
+msgid "The connection is not available for your plan at the moment. Check your plan in your Complianty account."
+msgstr "Die Verbindung steht für Ihren Tarif derzeit nicht zur Verfügung. Prüfen Sie Ihren Tarif in Ihrem Complianty-Konto."
+
+#: src/Support/Messages.php:98
+msgid "This token is not allowed to do this. Create a token with the required permission in your Complianty account."
+msgstr "Dieses Token darf das nicht. Erstellen Sie in Ihrem Complianty-Konto ein Token mit der nötigen Berechtigung."
+
+#: src/Support/Messages.php:111
+msgid "This website was checked recently. Please try again later."
+msgstr "Diese Website wurde kürzlich geprüft. Bitte versuchen Sie es später erneut."
+
+#. translators: %s: waiting time, e.g. "5 hours"
+#: src/Support/Messages.php:113
+msgid "This website was checked recently. Please try again in %s."
+msgstr "Diese Website wurde kürzlich geprüft. Bitte versuchen Sie es in %s erneut."
+
+#: src/Support/Messages.php:117
+msgid "A scan was started recently. Please try again later."
+msgstr "Ein Scan wurde kürzlich gestartet. Bitte versuchen Sie es später erneut."
+
+#. translators: %s: waiting time, e.g. "5 minutes"
+#: src/Support/Messages.php:119
+msgid "A scan was started recently. Please try again in %s."
+msgstr "Ein Scan wurde kürzlich gestartet. Bitte versuchen Sie es in %s erneut."
+
+#: src/Support/Messages.php:145
+msgid "Connected"
+msgstr "Verbunden"
+
+#: src/Support/Messages.php:147
+msgid "Token invalid or revoked"
+msgstr "Token ungültig oder widerrufen"
+
+#: src/Support/Messages.php:149
+msgid "Subscription not active"
+msgstr "Abonnement nicht aktiv"
+
+#: src/Support/Messages.php:151
+msgid "Not available for your plan"
+msgstr "Für Ihren Tarif nicht verfügbar"
+
+#: src/Support/Messages.php:153
+msgid "Service not reachable"
+msgstr "Dienst nicht erreichbar"
+
+#: src/Support/Messages.php:155
+msgid "Unexpected response from the service"
+msgstr "Unerwartete Antwort des Dienstes"
+
+#: src/Support/Privacy.php:46
+msgid "Suggested text. Review and adapt it to your situation."
+msgstr "Textvorschlag. Bitte prüfen und an Ihre Situation anpassen."
+
+#. translators: %s: link to the privacy policy of Complianty
+#: src/Support/Privacy.php:49
+msgid "If an administrator of this website connects the Complianty Connector plugin to a Complianty account, the server of this website contacts the service Complianty (app.complianty.de) to retrieve the status of the website check and the privacy policy that was created and approved in that account. Each request contains a connection token and the plugin version. Personal data of visitors of this website is not sent. Information about the provider is available in its privacy policy: %s"
+msgstr "Wenn ein Administrator dieser Website das Plugin Complianty Connector mit einem Complianty-Konto verbindet, ruft der Server dieser Website beim Dienst Complianty (app.complianty.de) den Status der Website-Prüfung und die in diesem Konto erstellte und freigegebene Datenschutzerklärung ab. Jede Anfrage enthält ein Verbindungstoken und die Plugin-Version. Personenbezogene Daten von Besuchern dieser Website werden nicht gesendet. Angaben zum Anbieter finden Sie in dessen Datenschutzerklärung: %s"
+
+#: src/Support/Privacy.php:52
+msgid "Visitors of this website do not contact Complianty through this plugin. If the privacy policy of your Complianty account is shown on this website, it is stored on this website and delivered from there."
+msgstr "Besucher dieser Website nehmen über dieses Plugin keinen Kontakt zu Complianty auf. Wird die Datenschutzerklärung Ihres Complianty-Kontos auf dieser Website angezeigt, ist sie auf dieser Website gespeichert und wird von dort ausgeliefert."
+
+#: src/Support/Privacy.php:53
+msgid "Before a token is entered, the plugin makes no requests. The optional free check of the website is only started by an administrator and sends the address of this website to Complianty."
+msgstr "Solange kein Token eingegeben ist, sendet das Plugin keine Anfragen. Der optionale kostenlose Check der Website wird nur von einem Administrator gestartet und sendet die Adresse dieser Website an Complianty."
+
+#: assets/admin.js:70
+#: assets/admin.js:83
+msgid "The state could not be read. Reload the page to try again."
+msgstr "Der Status konnte nicht gelesen werden. Laden Sie die Seite neu und versuchen Sie es erneut."
+
+#: assets/admin.js:78
+msgid "This takes longer than expected. Reload the page later to see the result."
+msgstr "Das dauert länger als erwartet. Laden Sie die Seite später neu, um das Ergebnis zu sehen."
+
+#: assets/admin.js:96
+msgid "The scan is running. This page updates when it is finished."
+msgstr "Der Scan läuft. Diese Seite aktualisiert sich, wenn er fertig ist."
+
+#: assets/admin.js:102
+msgid "Starting the scan..."
+msgstr "Scan wird gestartet ..."
+
+#: assets/admin.js:105
+#: assets/admin.js:111
+msgid "The scan could not be started."
+msgstr "Der Scan konnte nicht gestartet werden."
+
+#: assets/admin.js:124
+msgid "Starting the check..."
+msgstr "Prüfung wird gestartet ..."
+
+#: assets/admin.js:127
+#: assets/admin.js:133
+msgid "The check could not be started."
+msgstr "Die Prüfung konnte nicht gestartet werden."
+
+#: blocks/dse/edit.js:25
+msgid "No approved privacy policy yet. Connect this site in Settings > Complianty and approve the policy in your Complianty account."
+msgstr "Noch keine freigegebene Datenschutzerklärung. Verbinden Sie diese Website unter Einstellungen > Complianty und geben Sie die Erklärung in Ihrem Complianty-Konto frei."
+
+#: blocks/dse/block.json
+msgid "Privacy policy (Complianty)"
+msgstr "Datenschutzerklärung (Complianty)"
+
+#: blocks/dse/block.json
+msgid "Outputs the approved privacy policy from your Complianty account."
+msgstr "Gibt die freigegebene Datenschutzerklärung aus Ihrem Complianty-Konto aus."
+
+#: blocks/dse/block.json
+msgid "privacy"
+msgstr "Datenschutz"
+
+#: blocks/dse/block.json
+msgid "privacy policy"
+msgstr "Datenschutzerklärung"
+
+#: blocks/dse/block.json
+msgid "complianty"
+msgstr "complianty"
