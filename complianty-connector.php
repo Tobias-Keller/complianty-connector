@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Complianty Connector
- * Plugin URI:        https://complianty.de/
+ * Plugin URI:        https://github.com/Tobias-Keller/complianty-connector
  * Description:       Shows the status of your Complianty website scan in the WordPress admin and outputs your privacy policy from your Complianty account.
  * Version:           1.0.0
  * Requires at least: 6.3
