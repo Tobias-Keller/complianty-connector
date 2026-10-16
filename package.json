@@ -1,0 +1,16 @@
+{
+	"name": "complianty-connector-dev",
+	"private": true,
+	"description": "Development tooling only. Not part of the plugin release.",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy",
+		"test:integration": "wp-env run tests-cli --env-cwd=wp-content/plugins/complianty-connector vendor/bin/phpunit -c phpunit.integration.xml.dist",
+		"plugin-check": "wp-env run cli wp plugin check /var/www/html/wp-content/plugins/complianty-connector/build/stage/complianty-connector --format=table"
+	},
+	"devDependencies": {
+		"@wordpress/env": "11.17.0"
+	}
+}

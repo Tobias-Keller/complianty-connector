@@ -1,0 +1,109 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Coding standards and static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+      - run: php bin/version.php check
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer lint
+      - run: composer stan
+
+  unit:
+    name: Unit tests (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: sodium
+          tools: composer
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer test
+
+  integration:
+    name: WordPress ${{ matrix.label }} (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: '6.3'
+            php: '7.4'
+            core: 'https://wordpress.org/wordpress-6.3.zip'
+          - label: 'latest'
+            php: '8.3'
+            core: ''
+          - label: 'trunk'
+            php: '8.4'
+            core: 'https://wordpress.org/nightly-builds/wordpress-latest.zip'
+    env:
+      WP_ENV_PHP_VERSION: ${{ matrix.php }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: sodium
+          tools: composer
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: composer install --no-interaction --prefer-dist
+      - run: npm ci --no-audit --no-fund
+      - name: Select WordPress version
+        if: matrix.core != ''
+        run: echo "WP_ENV_CORE=${{ matrix.core }}" >> "$GITHUB_ENV"
+      - run: npx wp-env start
+      - run: npm run test:integration
+
+  package:
+    name: Release package and Plugin Check
+    runs-on: ubuntu-latest
+    needs: [lint, unit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: sodium
+          tools: composer
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: bin/build-release.sh
+      - run: npx wp-env start
+      - name: Plugin Check on the release tree
+        run: npm run plugin-check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: complianty-connector-zip
+          path: |
+            build/complianty-connector.zip
+            build/complianty-connector.zip.sha256

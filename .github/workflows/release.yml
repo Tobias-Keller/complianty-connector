@@ -1,0 +1,94 @@
+name: Release
+
+# Releases only come from a version tag, never from a manual upload.
+# Tag format: v1.2.3 (the number must match the plugin header, the constant, readme.txt and composer.json).
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: sodium
+          tools: composer
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Version must match the tag
+        run: php bin/version.php check "${GITHUB_REF_NAME#v}"
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer check
+      - run: npm ci --no-audit --no-fund
+      - run: bin/build-release.sh
+      - run: npx wp-env start
+      - run: npm run test:integration
+      - name: Plugin Check on the release tree
+        run: npm run plugin-check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: complianty-connector-zip
+          path: |
+            build/complianty-connector.zip
+            build/complianty-connector.zip.sha256
+
+  github-release:
+    name: GitHub release with checksum
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: complianty-connector-zip
+      - name: Write release notes
+        run: |
+          {
+            echo "SHA-256 of complianty-connector.zip:"
+            echo
+            echo '```'
+            cat complianty-connector.zip.sha256
+            echo '```'
+          } > notes.md
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            complianty-connector.zip
+            complianty-connector.zip.sha256
+          body_path: notes.md
+
+  wordpress-org:
+    name: Deploy to WordPress.org
+    runs-on: ubuntu-latest
+    needs: build
+    # Create this environment with required reviewers, so a deploy needs a human approval.
+    environment: wordpress-org
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: sodium
+          tools: composer
+      # The deploy action copies the workspace per .distignore, so vendor/ must be the production build.
+      - run: composer install --no-dev --classmap-authoritative --no-interaction --no-progress
+      - uses: 10up/action-wordpress-plugin-deploy@2.3.0
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: complianty-connector
+          ASSETS_DIR: .wordpress-org

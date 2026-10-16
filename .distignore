@@ -1,0 +1,25 @@
+# Everything listed here stays out of the release ZIP and out of the WordPress.org SVN checkout.
+.git
+.github
+.gitignore
+.distignore
+.wp-env.json
+.wordpress-org
+.phpcs-cache
+.phpunit.result.cache
+.DS_Store
+bin
+build
+node_modules
+tests
+composer.lock
+package.json
+package-lock.json
+phpcs.xml.dist
+phpstan.neon.dist
+phpunit.xml.dist
+phpunit.integration.xml.dist
+SECURITY.md
+README.md
+*.zip
+*.sha256

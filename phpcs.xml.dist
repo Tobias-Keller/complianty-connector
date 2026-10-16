@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<ruleset name="Complianty Connector">
+	<description>WordPress Coding Standards for Complianty Connector.</description>
+
+	<file>complianty-connector.php</file>
+	<file>uninstall.php</file>
+	<file>src</file>
+	<file>tests</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="ps"/>
+	<arg name="parallel" value="8"/>
+
+	<config name="testVersion" value="7.4-"/>
+	<config name="minimum_wp_version" value="6.3"/>
+
+	<rule ref="WordPress">
+		<!-- PSR-4 file names in src/ and tests/ (class names equal file names). -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+	</rule>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- Test methods are self-describing; docblocks on every test add noise. -->
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Generic.Commenting.DocComment.MissingShort">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.ClassComment">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<!--
+		Tests exercise WordPress itself: core hooks and globals, raw SQL to prove what is stored, hostile
+		markup as test data. These rules guard the shipped code in src/ and stay fully on there.
+	-->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.DB.DirectDatabaseQuery">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.GlobalVariablesOverride">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.EnqueuedResources">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.Security.EscapeOutput">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.PHP.IniSet">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="complianty-connector"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="complianty"/>
+				<element value="Complianty"/>
+				<element value="COMPLIANTY"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- All remote calls must go through Api\Client (the only file excluded below). -->
+	<rule ref="WordPress.WP.AlternativeFunctions"/>
+	<rule ref="Generic.PHP.ForbiddenFunctions">
+		<properties>
+			<property name="forbiddenFunctions" type="array">
+				<element key="wp_remote_get" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="wp_remote_post" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="wp_remote_head" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="wp_remote_request" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="wp_safe_remote_get" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="wp_safe_remote_post" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="wp_safe_remote_head" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="wp_safe_remote_request" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="fsockopen" value="Complianty\\Connector\\Api\\Client"/>
+				<element key="stream_socket_client" value="Complianty\\Connector\\Api\\Client"/>
+			</property>
+		</properties>
+		<exclude-pattern>*/src/Api/Client.php</exclude-pattern>
+	</rule>
+</ruleset>
