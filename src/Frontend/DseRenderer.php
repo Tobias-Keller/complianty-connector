@@ -82,7 +82,14 @@ final class DseRenderer {
 		$html = (string) preg_replace( '#<[a-z/!?][^<>]{4000,}+>?#i', '', $html );
 
 		// Bounded tag length and "$" as the end keep this linear on input with thousands of unclosed tags.
-		$html = (string) preg_replace( '#<(script|style|textarea|title|iframe|object|noscript|template|svg|math)\b[^>]{0,1000}+>.*?(?:</\1\s*>|$)#is', '', $html );
+		// Removing a tag can join the text around it into a new tag ("<scr<script>ipt>"), so repeat until stable.
+		for ( $pass = 0; $pass < 5; $pass++ ) {
+			$before = $html;
+			$html   = (string) preg_replace( '#<(script|style|textarea|title|iframe|object|noscript|template|svg|math)\b[^>]{0,1000}+>.*?(?:</\1\s*>|$)#is', '', $html );
+			if ( $html === $before ) {
+				break;
+			}
+		}
 
 		$safe = wp_kses( $html, self::allowed_html(), self::allowed_protocols() );
 

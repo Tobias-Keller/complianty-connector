@@ -501,7 +501,11 @@ final class SettingsPageTest extends IntegrationTestCase {
 		$this->assertStringStartsWith( plugins_url( '', COMPLIANTY_CONNECTOR_FILE ), $script->src );
 		$this->assertNotContains( 'jquery', $script->deps );
 
-		$inline = (string) $script->extra['before'][1] ?? '';
+		$inline = implode(
+			'
+',
+			array_map( 'strval', (array) ( $script->extra['before'] ?? array() ) )
+		);
 		$this->assertStringNotContainsString( self::TOKEN, $inline );
 		$this->assertStringNotContainsString( 'clp_site_', $inline );
 	}
