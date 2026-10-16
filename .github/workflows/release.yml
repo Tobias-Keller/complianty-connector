@@ -38,7 +38,7 @@ jobs:
       - run: npm run test:integration
       - name: Plugin Check on the release tree
         run: npm run plugin-check
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: complianty-connector-zip
           path: |
