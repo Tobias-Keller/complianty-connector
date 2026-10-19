@@ -41,9 +41,6 @@ final class Plugin {
 	 * @return void
 	 */
 	public static function boot(): void {
-		// Ships German texts, loaded for the German locales when no language pack from WordPress.org exists.
-		add_action( 'init', array( self::class, 'load_textdomain' ) );
-
 		$tokens    = new TokenStore();
 		$cache     = new Cache();
 		$client    = new Client( $tokens, $cache );
@@ -65,16 +62,6 @@ final class Plugin {
 		$status_page = new StatusPage( $client, $cache );
 		( new SettingsPage( $tokens, $cache, $dse_store, $dse_sync, $status_page, new Notices(), $client, $settings ) )->register();
 		( new DashboardWidget( $tokens, $status_page ) )->register();
-	}
-
-	/**
-	 * Loads the translations shipped in languages/.
-	 *
-	 * @return void
-	 */
-	public static function load_textdomain(): void {
-		// phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- WordPress only auto-loads packs from wp-content/languages. The German texts shipped in languages/ need this call.
-		load_plugin_textdomain( 'complianty-connector', false, dirname( plugin_basename( COMPLIANTY_CONNECTOR_FILE ) ) . '/languages' );
 	}
 
 	/**

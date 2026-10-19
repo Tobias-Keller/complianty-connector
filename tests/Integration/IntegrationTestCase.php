@@ -35,7 +35,6 @@ abstract class IntegrationTestCase extends WP_UnitTestCase {
 
 	public function set_up() {
 		parent::set_up();
-		unload_textdomain( 'complianty-connector' );
 		$this->requests = array();
 		$this->queue    = array();
 		add_filter( 'pre_http_request', array( $this, 'intercept' ), 10, 3 );

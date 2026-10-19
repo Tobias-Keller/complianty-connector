@@ -9,6 +9,7 @@
 .phpunit.result.cache
 .DS_Store
 bin
+translations
 build
 node_modules
 tests

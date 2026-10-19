@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Builds languages/complianty-connector-de_DE.po from the .pot and the German texts below (formal "Sie").
+"""Builds translations/complianty-connector-de_DE.po from the .pot and the German texts below (formal "Sie").
 
-Usage: python3 bin/make-de-po.py && msgfmt languages/complianty-connector-de_DE.po -o languages/complianty-connector-de_DE.mo
+The file is not shipped in the plugin. WordPress.org delivers translations from translate.wordpress.org,
+so this file is the source to import there once the plugin is published.
+Usage: python3 bin/make-de-po.py
 Strings missing in the table are reported and left untranslated.
 """
 import re
 import sys
 
 POT = "languages/complianty-connector.pot"
-OUT = "languages/complianty-connector-de_DE.po"
+OUT = "translations/complianty-connector-de_DE.po"
 
 T = {
 "Complianty Connector": "Complianty Connector",

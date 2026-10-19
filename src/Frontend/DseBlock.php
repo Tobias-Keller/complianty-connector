@@ -56,7 +56,7 @@ final class DseBlock {
 			COMPLIANTY_CONNECTOR_VERSION,
 			true
 		);
-		wp_set_script_translations( self::EDITOR_HANDLE, 'complianty-connector', dirname( COMPLIANTY_CONNECTOR_FILE ) . '/languages' );
+		wp_set_script_translations( self::EDITOR_HANDLE, 'complianty-connector' );
 
 		register_block_type(
 			$dir,

@@ -287,7 +287,7 @@ final class SettingsPage {
 
 		wp_enqueue_style( 'complianty-connector-admin', plugins_url( 'assets/admin.css', COMPLIANTY_CONNECTOR_FILE ), array(), COMPLIANTY_CONNECTOR_VERSION );
 		wp_enqueue_script( 'complianty-connector-admin', plugins_url( 'assets/admin.js', COMPLIANTY_CONNECTOR_FILE ), array( 'wp-i18n' ), COMPLIANTY_CONNECTOR_VERSION, true );
-		wp_set_script_translations( 'complianty-connector-admin', 'complianty-connector', dirname( COMPLIANTY_CONNECTOR_FILE ) . '/languages' );
+		wp_set_script_translations( 'complianty-connector-admin', 'complianty-connector' );
 		wp_add_inline_script(
 			'complianty-connector-admin',
 			'window.compliantyConnector = ' . wp_json_encode(
